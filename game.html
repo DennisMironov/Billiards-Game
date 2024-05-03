@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DennisM 8-Ball Pool Game</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="game-over-container" style="visibility:hidden">
+    </div>
+
+    <div class="player-one-container">
+      <div class="current-player" style="visibility:hidden"><small>&#x25BC;&nbsp; current &nbsp;&#x25BC;</small></div>
+       <h2>Player One</h2>
+       <h3 id="player-one-name"></h3>
+       <h3 class="player-set" id="player-one-set"></h3>
+    </div>
+
+    <div class="player-two-container">
+      <div class="current-player" style="visibility:hidden"><small>&#x25BC;&nbsp; current &nbsp;&#x25BC;</small></div>
+      <h2>Player Two</h2>
+      <h3 id="player-two-name"></h3>
+      <h3 class="player-set" id="player-two-set"></h3>
+    </div>
+
+    <svg id="pool-table-board" viewBox="-25 -25 1400 2750">
+      <rect id="board-bg" width="1350" height="2700" x="0" y="0" fill="#C0D0C0" />
+      <circle cx="0" cy="0" r="114" fill="black" />
+      <circle cx="0" cy="1350" r="114" fill="black" />
+      <circle cx="0" cy="2700" r="114" fill="black" />
+      <circle cx="1350" cy="0" r="114" fill="black" />
+      <circle cx="1350" cy="1350" r="114" fill="black" />
+      <circle cx="1350" cy="2700" r="114" fill="black" />
+      <rect width="1400" height="25" x="-25" y="-25" fill="darkgreen" />
+      <rect width="1400" height="25" x="-25" y="2700" fill="darkgreen" />
+      <rect width="25" height="2750" x="-25" y="-25" fill="darkgreen" />
+      <rect width="25" height="2750" x="1350" y="-25" fill="darkgreen" />
+    </svg>
+    <svg id="pool-table-svg" viewBox="-25 -25 1400 2750"></svg>
+
+    <canvas id="canvas"></canvas>
+
+    <div class="btn-exit-container">
+      <button class="btn btn-back" onclick="goBack()">GO BACK</button>
+    </div>
+
+    <div class="btn-restart-container">
+      <button class="btn btn-restart" onclick="refreshPage()">RESTART</button>
+    </div>
+  </div>
+
+  <div id="overlay">
+    <div class="loading-spinner"></div>
+  </div>
+
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+    function refreshPage() {
+      location.reload();
+    }
+  </script>
+</body>
+
+</html>

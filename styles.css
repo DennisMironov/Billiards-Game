@@ -1,0 +1,151 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden; /* Hide vertical scrollbar */
+}
+
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+#pool-table-svg, #pool-table-board {
+  position: absolute;
+  height: 75vh;
+}
+
+#canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.01); /* transparent overlay */
+  display: none; /* Initially hidden */
+}
+
+@keyframes spinner {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-spinner {
+  position: absolute;
+  top: 4%;
+  left: calc(50% - 15px);
+  transform: translate(-50%, -50%);
+  border: 3px solid rgba(0, 0, 0, 0.3);
+  border-top: 3px solid #000;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spinner 0.6s linear infinite;
+}
+.game-over-container {
+  background-color: darkred;
+  border-radius: 4px;
+  color: #f1faf3;
+  position: absolute;
+  top: 20px;
+  width: 90%;
+  height: 4rem;
+  padding: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.current-player {
+  background-color: darkgreen;
+  border-radius: 8px;
+  color: #f1faf3;
+  width: 90%;
+  height: 20px;
+  text-align: center;
+}
+.player-set {
+  padding: 8px 20px;
+  color: #fff;
+}
+.player-one-container, .player-two-container {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #f1faf3;
+  border: 2px solid #eefdf2;
+  border-radius: 8px;
+  padding: 20px;
+  width: 10rem;
+  position: absolute;
+  top: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.player-one-container {
+  left: 10%;
+}
+.player-two-container {
+  left: calc(90% - 10rem);
+}
+
+.btn-exit-container, .btn-restart-container {
+  width: 10rem;
+  height: 3rem;
+  position: absolute;
+  top: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn-exit-container {
+  left: 5%;
+}
+.btn-restart-container {
+  left: calc(95% - 10rem);
+}
+.btn {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+.btn:hover,
+.btn:focus {
+  color: #fff;
+}
+.btn-back {
+  border: 1px solid darkgreen; /* Bootstrap's primary color */
+  background-color: green; /* Bootstrap's primary color */
+}
+.btn-back:hover,
+.btn-back:focus {
+  background-color: darkgreen; /* Darker shade of Bootstrap's primary color on hover */
+  border-color: rgb(2, 46, 2); /* Darker shade of Bootstrap's primary color on hover */
+}
+.btn-restart {
+  border: 1px solid rgb(55, 53, 53);
+  background-color: rgb(106, 105, 105);
+}
+.btn-restart:hover,
+.btn-restart:focus {
+  background-color: rgb(54, 53, 53);;
+  border-color: rgb(4, 4, 4);
+}
